@@ -1,0 +1,34 @@
+name: Генерация отчёта
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  render-paper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v5
+
+      - run: mkdir export
+
+      - name: Set up templates
+        uses: actions/checkout@v6
+        with:
+          repository: 'm1raynee/typst-templates'
+          path: 'report/typst-templates'
+          ref: 'main'
+
+      - name: Compile 'report.typ'
+        run: typst compile report/report.typ export/report.pdf
+
+      - name: Render report
+        run: typst compile report/report.typ report.pdf
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: PDF
+          path: export/
