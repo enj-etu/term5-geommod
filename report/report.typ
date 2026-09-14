@@ -1,7 +1,6 @@
 #{
   import "typst-templates/style.typ": apply_styles
   import "typst-templates/titlepage.typ": titlepage
-  import "parts/labs.typ": labs
 
   show: apply_styles
   show heading.where(level: 2): set heading(numbering: none)
@@ -22,6 +21,8 @@
     }
   })
 
+  show "->": sym.arrow.r
+
   titlepage(
     "Островский В.Ю.",
     ("", 4352, "Даричев Е.М."),
@@ -29,14 +30,12 @@
     ("", 4352, "Чехонадских Н.А."),
     department: "САПР",
     discipline: "Геометрическое моделирование",
-    number: "№1-" + str(labs.len()),
+    number: "№1",  // TODO: bump version
   )
   set par(justify: true)
 
   outline(depth: 1)
+  pagebreak()
 
-  for lab in labs {
-    pagebreak()
-    lab
-  }
+  include "parts/lab1.typ"
 }
