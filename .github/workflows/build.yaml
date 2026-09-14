@@ -13,6 +13,7 @@ jobs:
         uses: typst-community/setup-typst@v5
 
       - run: mkdir export
+      - run: mkdir fonts
 
       - name: Set up templates
         uses: actions/checkout@v6

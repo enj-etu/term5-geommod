@@ -1,0 +1,3 @@
+[submodule "report/typst-templates"]
+	path = report/typst-templates
+	url = https://github.com/m1raynee/typst-templates.git
