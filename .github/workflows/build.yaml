@@ -21,8 +21,14 @@ jobs:
           path: 'report/typst-templates'
           ref: 'main'
 
+      - name: Set up fonts
+        uses: actions/checkout@v6
+        with:
+          repository: 'misuchiru03/font-times-new-roman'
+          path: 'report/fonts'
+
       - name: Compile 'report.typ'
-        run: typst compile --root . report/report.typ export/report.pdf
+        run: typst compile --root . report/report.typ export/report.pdf --font-path report/fonts
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v6
