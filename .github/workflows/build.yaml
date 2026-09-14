@@ -22,10 +22,7 @@ jobs:
           ref: 'main'
 
       - name: Compile 'report.typ'
-        run: typst compile report/report.typ export/report.pdf
-
-      - name: Render report
-        run: typst compile report/report.typ report.pdf
+        run: typst compile --root . report/report.typ export/report.pdf
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v6
