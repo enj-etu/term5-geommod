@@ -3,20 +3,19 @@
   import "typst-templates/titlepage.typ": titlepage
 
   show: apply_styles
+
   show heading: set align(center)
+  show heading: set heading(numbering: (..nums) => "")
 
-  set heading(numbering: (..nums) => "")
-
+  // figure numbering scripts 
   show heading.where(level: 1): it => {
     counter(figure.where(kind: image)).update(0)
     it
   }
-
-  set figure(numbering: (..nums) => {
+  set figure(numbering: (first, ..) => {
     context {
       let character-num = counter(heading).get().at(0)
-      let figure-num = nums.pos().at(0)
-      return numbering("1.1", character-num, figure-num)
+      return numbering("1.1", character-num, first)
     }
   })
 
@@ -31,6 +30,7 @@
     discipline: [Геометрическое моделирование],
     number: [№1-4],  // TODO: bump version
   )
+
   set par(
     justify: true,
     first-line-indent: (
