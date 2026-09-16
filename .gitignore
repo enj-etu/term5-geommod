@@ -3,3 +3,4 @@ traceback.log
 std.out
 export/
 *.pdf
+*.prt.?
