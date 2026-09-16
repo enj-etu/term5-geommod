@@ -3,7 +3,6 @@
   import "typst-templates/titlepage.typ": titlepage
 
   show: apply_styles
-  show heading.where(level: 2): set heading(numbering: none)
   show heading: set align(center)
 
   set heading(numbering: (..nums) => "")
@@ -28,14 +27,27 @@
     ("", 4352, "Даричев Е.М."),
     ("ка", 4352, "Макарова Ю.И."),
     ("", 4352, "Чехонадских Н.А."),
-    department: "САПР",
-    discipline: "Геометрическое моделирование",
-    number: "№1",  // TODO: bump version
+    department: [САПР],
+    discipline: [Геометрическое моделирование],
+    number: [№1-4],  // TODO: bump version
   )
-  set par(justify: true)
+  set par(
+    justify: true,
+    first-line-indent: (
+      amount: 1.25cm,
+      all: true
+    ),
+    leading: 1em
+  )
 
   outline(depth: 1)
   pagebreak()
 
   include "parts/lab1.typ"
+  pagebreak()
+  include "parts/lab2.typ"
+  pagebreak()
+  include "parts/lab3.typ"
+  pagebreak()
+  include "parts/lab4.typ"
 }

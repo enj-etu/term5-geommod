@@ -1,0 +1,5 @@
+trail.txt.*
+traceback.log
+std.out
+export/
+*.pdf
