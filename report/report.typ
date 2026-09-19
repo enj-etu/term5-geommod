@@ -28,7 +28,7 @@
     ("", 4352, "Чехонадских Н.А."),
     department: [САПР],
     discipline: [Геометрическое моделирование],
-    number: [№1-4],  // TODO: bump version
+    number: [№1-5],  // TODO: bump version
   )
 
   set par(
@@ -50,4 +50,6 @@
   include "parts/lab3.typ"
   pagebreak()
   include "parts/lab4.typ"
+  pagebreak()
+  include "parts/lab5.typ"
 }
