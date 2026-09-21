@@ -13,20 +13,12 @@ jobs:
       - name: Set up Typst
         uses: typst-community/setup-typst@v5
 
-      - name: Set up templates
-        uses: actions/checkout@v6
-        with:
-          repository: 'm1raynee/typst-templates'
-          path: 'report/typst-templates'
-          ref: 'main'
+      - name: Set up submodules
+        run: git submodule update --init --recursive
 
-      - name: Set up fonts
-        uses: actions/checkout@v6
-        with:
-          repository: 'misuchiru03/font-times-new-roman'
-          path: 'report/fonts'
+      - name: Create export directory
+        run: mkdir export
 
-      - run: mkdir export
       - name: Compile 'report.typ'
         run: typst compile report/report.typ export/report.pdf --font-path report/fonts
 

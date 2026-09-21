@@ -1,3 +1,7 @@
 [submodule "report/typst-templates"]
 	path = report/typst-templates
 	url = https://github.com/m1raynee/typst-templates.git
+
+[submodule "report/fonts"]
+	path = report/fonts
+	url = https://github.com/misuchiru03/font-times-new-roman.git
