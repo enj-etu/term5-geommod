@@ -4,3 +4,4 @@ std.out
 export/
 *.pdf
 *.prt.?
+.vscode

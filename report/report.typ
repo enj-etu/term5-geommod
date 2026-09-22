@@ -16,7 +16,6 @@
     let character-num = counter(heading).get().at(0)
     return numbering("1.1", character-num, first)
   })
-  set page(numbering: "1")
 
   show "->": sym.arrow.r
 
