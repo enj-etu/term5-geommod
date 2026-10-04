@@ -1,6 +1,5 @@
 #{
   import "typst-templates/style.typ": apply_styles
-  import "typst-templates/titlepage.typ": titlepage
 
   show: apply_styles
 
@@ -19,15 +18,38 @@
 
   show "->": sym.arrow.r
 
-  titlepage(
-    "Островский В.Ю.",
-    ("", 4352, "Даричев Е.М."),
-    ("ка", 4352, "Макарова Ю.И."),
-    ("", 4352, "Чехонадских Н.А."),
-    department: [САПР],
-    discipline: [Геометрическое моделирование],
-    number: [№1-5], // TODO: bump version
-  )
+    text(weight: "bold")[
+    #align(center + top)[
+      МИНОБРНАУКИ РОССИИ \
+      САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ \
+      ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ \
+      "ЛЭТИ" ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)\
+            Кафедра САПР
+    ]
+    // #v(14pt * 10)
+    #align(center + horizon)[
+      ОТЧЁТ\
+      по лабораторным работам №1-9\
+        по дисциплине "Геометрическое моделирование"
+    ]
+
+    ]
+    align(center + bottom)[
+      #grid(
+        columns: (1fr, 1fr, 1fr),
+        rows: 1.08cm,
+        align: (left, left, left),
+        "Преподаватель","_______________", "Островский В.Ю.",
+    "Студент гр. 4352","_______________", "Даричев Е.М.",
+    "Студентка гр. 4352","_______________", "Макарова Ю.И.",
+    "Студент гр. 4352", "_______________","Чехонадских Н.А.",
+      )
+
+      #v(3cm)
+      Санкт-Петербург\
+      2026
+    ]
+    pagebreak()
 
   set par(
     justify: true,
@@ -51,4 +73,10 @@
   include "parts/lab4.typ"
   pagebreak()
   include "parts/lab5.typ"
+  pagebreak()
+include "parts/lab6.typ"
+  pagebreak()
+include "parts/lab7-8.typ"
+  pagebreak()
+include "parts/lab9.typ"
 }
